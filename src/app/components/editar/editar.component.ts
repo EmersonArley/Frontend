@@ -11,37 +11,47 @@ import { UsuariosServicesService } from 'src/app/services/usuarios-services.serv
   styleUrls: ['./editar.component.css']
 })
 export class EditarComponent implements OnInit {
-@Input() usuario: Usuario;
+  @Input() usuario: Usuario;
   usuarioForm: FormGroup;
-  constructor(private activeModal: NgbActiveModal, private fb: FormBuilder, private usuariosServices:UsuariosServicesService) { }
+  constructor(private activeModal: NgbActiveModal, private fb: FormBuilder, private usuariosServices: UsuariosServicesService) { }
 
   ngOnInit(): void {
-    this.usuarioForm=this.fb.group({
-      nombreUsuario: [this.usuario.nombreUsuario], 
+    this.usuarioForm = this.fb.group({
+      nombreUsuario: [this.usuario.nombreUsuario],
       contrasena: [this.usuario.contrasena]
     });
+
+
   }
 
-  closeModal(){
+  closeModal() {
     this.activeModal.close();
-    
+
+
   }
 
-  editarUsuario(){
-    var usuario : Usuario = {id_Usuario:this.usuario.id_Usuario, nombreUsuario: this.usuarioForm.value.nombreUsuario, contrasena: this.usuarioForm.value.contrasena};
-    this.usuariosServices.editarUsuarios(usuario).subscribe(res => {
+  editarUsuario() {
 
-      if (res) {
-        alert("Usuario Modificado exitosamente");
-      } else {
-        alert("Error al editar el usuario")
-      }
+if(this.usuarioForm.value.nombreUsuario=="" || this.usuarioForm.value.contrasena=="" ){
+    alert("No pueden haber campos vacios")
+} else{
+  var usuario: Usuario = { id_Usuario: this.usuario.id_Usuario, nombreUsuario: this.usuarioForm.value.nombreUsuario, contrasena: this.usuarioForm.value.contrasena };
+  this.usuariosServices.editarUsuarios(usuario).subscribe(res => {
 
-      this.closeModal();
-      window.location.reload();
-      
-      
-    });
+    if (res) {
+     alert("Usuario Modificado exitosamente");
+    } else {
+      alert("Error al editar el usuario")
+    }
+
+    this.closeModal();
+     window.location.reload();
+
+
+  });
+}
+
+  
 
   }
 

@@ -15,6 +15,7 @@ import { BorrarComponent } from './components/borrar/borrar.component';
 import { PanelComponent } from './components/panel/panel.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { PanelComponent } from './components/panel/panel.component';
     EditarComponent,
     LoginComponent,
     BorrarComponent,
-    PanelComponent
+    PanelComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,10 @@ import { PanelComponent } from './components/panel/panel.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    
+    
+      
 
   ],
   providers: [],

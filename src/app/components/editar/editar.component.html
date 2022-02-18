@@ -1,6 +1,6 @@
 
   <div class="modal-header">
-    <h5 class="modal-title">Modal title</h5>
+    <h5 class="modal-title">Editar Usuario</h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal();">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -8,17 +8,16 @@
   <div class="modal-body">
     <form [formGroup]="usuarioForm">
         <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
+          <label for="exampleInputEmail1">Usuario</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="nombreUsuario" >
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
+          <label for="exampleInputPassword1">Contraseña</label>
           <input type="text" class="form-control" id="exampleInputPassword1" formControlName="contrasena">
         </div>
       </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal();">Close</button>
-    <button type="button" class="btn btn-primary" (click)="editarUsuario();">Save changes</button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal();">Cerrar</button>
+    <button type="button" class="btn btn-primary" (click)="editarUsuario();">Editar</button>
   </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+
 import { Usuario } from 'src/app/interfaces/usuario.interface';
 import { UsuariosServicesService } from 'src/app/services/usuarios-services.service';
 
@@ -25,24 +26,27 @@ export class LoginComponent implements OnInit {
     this.activeModal.close();
   }
 
+
+
   validarLogin(){
-    var usuario : Usuario = {id_Usuario : null, nombreUsuario : this.loginform.value.nombreUsuario, contrasena : this.loginform.value.contrasena};
-    this.usuarioService.validarLogin(usuario).subscribe(res => {
+
+    if(this.loginform.value.nombreUsuario == "" || this.loginform.value.contrasena== ""){
+       alert("Los campos no pueden estar vacios")
+     } else {
+      var usuario : Usuario = {id_Usuario : null, nombreUsuario : this.loginform.value.nombreUsuario, contrasena : this.loginform.value.contrasena};
+      this.usuarioService.validarLogin(usuario).subscribe(res => {
+
       if (res) {
-        alert("Iniciando sesion");
+        alert("Iniciando")
         this.router.navigate(['panel']);
-      } else {
-        alert("Usuario invalido o no registrado");
-        
+      } else  {
+        alert("Usuario invalido o no registrado");  
       }
-      
       this.CloseModal();
 
-      
-    })
+
+    });
   }
+}
 
-
-  }
-
-
+}
