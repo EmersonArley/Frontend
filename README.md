@@ -1,27 +1,20 @@
 # Frontend
+Este proyecto se generó con [Angular CLI](https://github.com/angular/angular-cli) versión 10.1.7.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7.
+# Paso 1
+Hay que instalar los paquetes necesarios para que el programa ejecute correctamente, para esto usamos el comando `npm install`
 
-## Development server
+# Paso 2 
+Correr `ng serve` para un servidor de desarrollo. Navegar a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambia alguno de los archivos de origen.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Paso 3
+Poner a correr los servicios de XAMPP para poder conectarnos, ademas se crea la base de datos con el script que esta en el backend en este caso "Test"
 
-## Code scaffolding
+# Paso 4
+Ahora habra que poner a correr el backend en este caso la carpeta "Test", para ejecutar el programa debemos poner `npm install` para instalar todos los paquetes necesarios.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Paso 5
+Corremos en la carpeta "Test" el comando `Node Appi.js` y asi ponemos a correr el backend.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+# Paso 6
+Ya tenemos corriendo nuestro programa si seguimos bien los pasos.

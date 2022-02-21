@@ -12,41 +12,44 @@ import { UsuariosServicesService } from 'src/app/services/usuarios-services.serv
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginform : FormGroup
-  constructor(private activeModal: NgbActiveModal, private fb : FormBuilder, private usuarioService : UsuariosServicesService, private router : Router) { }
+  loginform: FormGroup
+  constructor(private activeModal: NgbActiveModal, private fb: FormBuilder, private usuarioService: UsuariosServicesService, private router: Router) { }
 
   ngOnInit(): void {
     this.loginform = this.fb.group({
-      nombreUsuario : [""],
-      contrasena :[""]
+      nombreUsuario: [""],
+      contrasena: [""]
     });
   }
 
-  CloseModal(){
+  CloseModal() {
     this.activeModal.close();
   }
 
 
 
-  validarLogin(){
+  validarLogin() {
 
-    if(this.loginform.value.nombreUsuario == "" || this.loginform.value.contrasena== ""){
-       alert("Los campos no pueden estar vacios")
-     } else {
-      var usuario : Usuario = {id_Usuario : null, nombreUsuario : this.loginform.value.nombreUsuario, contrasena : this.loginform.value.contrasena};
+    if (this.loginform.value.nombreUsuario == "" || this.loginform.value.contrasena == "") {
+      alert("Los campos no pueden estar vacios")
+    } else {
+      var usuario: Usuario = { id_Usuario: null, nombreUsuario: this.loginform.value.nombreUsuario, contrasena: this.loginform.value.contrasena };
       this.usuarioService.validarLogin(usuario).subscribe(res => {
 
-      if (res) {
-        alert("Iniciando")
-        this.router.navigate(['panel']);
-      } else  {
-        alert("Usuario invalido o no registrado");  
-      }
-      this.CloseModal();
+        if (res != false) {
+          alert("Iniciando")
+          this.router.navigate(['panel']);
+
+          const token = res as string;
+          sessionStorage.setItem('token', token)
+        } else {
+          alert("Usuario invalido o no registrado");
+        }
+        this.CloseModal();
 
 
-    });
+      });
+    }
   }
-}
 
 }
